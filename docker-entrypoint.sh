@@ -112,5 +112,6 @@ if ! [ -z "$INPUT_COPY_STACK_FILE" ] && [ $INPUT_COPY_STACK_FILE = 'true' ] ; th
   execute_ssh ${DEPLOYMENT_COMMAND} "$INPUT_ARGS" 2>&1
 else
   echo "Connecting to $INPUT_REMOTE_DOCKER_HOST... Command: ${DEPLOYMENT_COMMAND} ${INPUT_ARGS}"
+  ${DEPLOYMENT_COMMAND} "pull" 2>&1
   ${DEPLOYMENT_COMMAND} ${INPUT_ARGS} 2>&1
 fi
